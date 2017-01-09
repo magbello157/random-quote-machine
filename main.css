@@ -1,0 +1,25 @@
+body {
+	background-image: url(images/footer_lodyas.png);
+	background-repeat: repeat;
+	color: #FFFFFF;
+}
+
+body, h1, h3, p {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+.container {
+	padding-top: 50px;
+}
+
+hr {
+	width: 500px;
+	border-bottom: 1px solid grey;
+}
+
+.quote-box {
+	border: 1px dashed grey;
+	border-radius: 15px;
+	padding: 10px;
+	margin-bottom: 15px;
+}
