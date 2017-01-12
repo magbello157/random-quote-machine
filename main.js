@@ -1,5 +1,6 @@
 $(document).ready(function () {
 	getNewQuote();
+	var quote, author;
 	function getNewQuote () {
 		$.ajax({
 			url: "http://api.forismatic.com/api/1.0/",
@@ -11,9 +12,11 @@ $(document).ready(function () {
 				format: "jsonp"
 			},
 			success: function (response) {
-				$("#quote").html(response.quoteText);
-				if (response.quoteAuthor) {
-					$("#author").html("- " + response.quoteAuthor);
+				quote = response.quoteText;
+				author = response.quoteAuthor;
+				$("#quote").html(quote);
+				if (author) {
+					$("#author").html("- " + author);
 				} else {
 					$("author").html("- Unknown");
 				}
@@ -27,6 +30,6 @@ $(document).ready(function () {
 
 	$("#tweet-quote").on("click", function(event) {
 		event.preventDefault();
-		
+		window.open("https://twitter.com/intent/tweet?text=" + encodeURIComponent(quote + " --" + author));
 	});
 });
